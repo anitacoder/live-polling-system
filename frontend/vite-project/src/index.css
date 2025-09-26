@@ -1,68 +1,206 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 body {
+  background-color: #ffffff;
   margin: 0;
+  padding: 0;
+  font-family: "Sora", sans-serif;
+}
+
+.intervue-poll {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 36px;
+  margin: 100px auto 40px;
+  border-radius: 24px;
+  padding: 0 10px;
+  gap: 7px;
+  background: linear-gradient(90deg, #7565D9 0%, #4D0ACD 100%);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.intervue-logo {
+  width: 15px;
+  height: 15px;
 }
 
-button {
-  border-radius: 8px;
+.intervue-text {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+.welcome {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.welcome-text {
+  font-weight: 400;
+  font-size: 40px;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.polling-text {
+  font-weight: 600;
+  color: #000000;
+}
+
+.welcome-para {
+  font-weight: 400;
+  font-size: 18px;
+  color: #00000080;
+  line-height: 140%;
+}
+
+.select-role {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 40px 0;
+}
+
+.role-card {
+  width: 380px;
+  height: 140px;
+  border-radius: 10px;
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.role-card:hover {
+  border-color: #666;
+}
+
+.role-card.active {
+  border: 3px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(92.24deg, #7765DA -8.5%, #1D68BD 101.3%) border-box;
+}
+
+.student {
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background: linear-gradient(#fff, #fff) padding-box,linear-gradient(92.24deg, #D9D9D9 -8.5%, #D9D9D9 101.3%) border-box;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.teacher {
+  border: 1px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,linear-gradient(92.24deg, #D9D9D9 -8.5%, #D9D9D9 101.3%) border-box;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.para {
+  font-size: 16px;
+  color: #666;
+  line-height: 140%;
+}
+
+.continue {
+  display: block;
+  width: fit-content;
+  margin: 20px auto 60px;
+  padding: 17px 70px;
+  border-radius: 34px;
+  text-decoration: none;
+  background: linear-gradient(99.18deg, #8F64E1 -46.89%, #1D68BD 223.45%);
+  font-weight: 600;
+  font-size: 18px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+
+@media (max-width: 768px) {
+  body {
+    background-color: #000000;
   }
-  a:hover {
-    color: #747bff;
+
+  .student {
+    margin-left: 20px;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .teacher {
+    margin-right: 20px;
   }
+
+  .student-text {
+    width: 120%;
+    margin-left: -10px;
+    font-size: 15px;
+  }
+
+  .student-title {
+    margin-left: -10px;
+  }
+}
+
+@media (max-width: 414px) {
+  .welcome-text {
+    font-size: 21px;
+  }
+  .welcome-para {
+    font-size: 16px;
+  }
+
+  .student-title {
+    white-space: nowrap;
+    position: relative;
+    top: 10px;
+  }
+
+  .student-title2 {
+    white-space: nowrap;
+    position: relative;
+    top: 10px;
+  }
+
+  .student {
+    position: relative;
+    left: 22px;
+  }
+
+  .teacher {
+    position: relative;
+    left: -22px;
+  }
+
+  .para {
+    font-size: 15px;
+  }
+
+  .para.student-text {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1024px) {
+ 
+  .student-text {
+    width: 120%;
+    margin-left: -10px;
+    font-size: 15px;
+  }
+
+  .student-title {
+    margin-left: -10px;
+  }
+
+  .student {
+    margin-left: 20px;
+  }
+
+  .teacher {
+    margin-right: 20px;
+  }
+
 }

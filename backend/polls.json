@@ -1,0 +1,36 @@
+[
+  {
+    "question": "Which planet is known as the Red Planet?",
+    "options": [
+      "Mars",
+      "Venus",
+      "Jupiter",
+      "Saturn"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      false,
+      false
+    ],
+    "results": {},
+    "timeStamp": "2025-09-26T09:06:28.901Z"
+  },
+  {
+    "question": "who is the president of nigeria",
+    "options": [
+      "Tunubu",
+      "Anita"
+    ],
+    "correctAnswers": [
+      true,
+      false
+    ],
+    "results": {
+      "Tunubu": 0,
+      "Anita": 0
+    },
+    "answers": {},
+    "timeStamp": "2025-09-26T17:37:37.871Z"
+  }
+]
