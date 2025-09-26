@@ -6,7 +6,7 @@ import reload from "./assets/Ellipse 1022.svg";
 import "./waiting.css";
 import message from "./assets/Vector-message.svg";
 
-const socket = io(import.meta.env.VITE_BACKEND_URL);
+const socket = io("https://live-polling-system-89wk.onrender.com");
 
 function WaitingPage() {
   const navigate = useNavigate();

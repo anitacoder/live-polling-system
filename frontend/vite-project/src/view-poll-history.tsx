@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 type Option = "Mars" | "Venus" | "Jupiter" | "Saturn";
 
-const socket = io(import.meta.env.VITE_BACKEND_URL);
+const socket = io("https://live-polling-system-89wk.onrender.com");
 
 function ViewHistoryPollPage() {
   const [popupOpen, setPopupOpen] = useState(false);

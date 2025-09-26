@@ -6,7 +6,7 @@ import { io } from "socket.io-client";
 import { useNavigate } from "react-router-dom";
 
 
-const socket = io(import.meta.env.VITE_BACKEND_URL);
+const socket = io("https://live-polling-system-89wk.onrender.com");
 
 function QuestionPage() {
   const [questionData, setQuestionData] = useState<any>(null);
