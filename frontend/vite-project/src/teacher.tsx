@@ -4,7 +4,7 @@ import logo from "./assets/Vector.svg";
 import { useNavigate } from "react-router-dom";
 import "./teacher.css";
 
-const socket = io(import.meta.env.VITE_BACKEND_URL);
+const socket = io("http://localhost:5001");
 
 function TeacherPage() {
   const [question, setQuestion] = useState("");
@@ -13,10 +13,8 @@ function TeacherPage() {
   const [timeLimit, setTimeLimit] = useState(60);
   const [students, setStudents] = useState<string[]>([]);
 
-  const API_URL = import.meta.env.VITE_BACKEND_URL;
-
   useEffect(() => {
-    fetch(`${API_URL}/teacher/students`)
+    fetch("http://localhost:5001/teacher/students")
     .then((res) => res.json())
     .then((data) => setStudents(data))
     .catch((err) => console.error("Failed to load students:", err));

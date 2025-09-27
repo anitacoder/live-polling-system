@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 type Option = "Mars" | "Venus" | "Jupiter" | "Saturn";
 
-const socket = io(import.meta.env.VITE_BACKEND_URL);
+const socket = io("http://localhost:5001");
 
 function ViewHistoryPollPage() {
   const [popupOpen, setPopupOpen] = useState(false);
@@ -61,8 +61,7 @@ function ViewHistoryPollPage() {
       setMessages((prev) => [...prev, msg]);
     });
 
-    fetch(`${API_URL}/teacher/students`)
-
+    fetch("http://localhost:5001/teacher/students")
       .then((res) => res.json())
       .then((data) => setStudents(data));
 
@@ -74,11 +73,9 @@ function ViewHistoryPollPage() {
     };
   }, [popupOpen]);
 
-  const API_URL = import.meta.env.VITE_BACKEND_URL;
-
   const handleKickOut = async (name: string) => {
     try {
-      const res = await fetch(`${API_URL}/teacher/remove`, {
+      const res = await fetch("http://localhost:5001/teacher/remove", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

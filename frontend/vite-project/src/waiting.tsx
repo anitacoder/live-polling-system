@@ -6,7 +6,7 @@ import reload from "./assets/Ellipse 1022.svg";
 import "./waiting.css";
 import message from "./assets/Vector-message.svg";
 
-const socket = io(import.meta.env.VITE_BACKEND_URL);
+const socket = io("http://localhost:5001");
 
 function WaitingPage() {
   const navigate = useNavigate();
@@ -35,8 +35,8 @@ function WaitingPage() {
       setMessages((prev) => [...prev, msg]);
     });
 
-    fetch(`${API_URL}/teacher/students`)
-    .then((res) => res.json())
+    fetch("http://localhost:5001/teacher/students")
+      .then((res) => res.json())
       .then((data) => setStudents(data));
 
     return () => {
@@ -71,11 +71,9 @@ function WaitingPage() {
     };
   }, [popupOpen]);
 
-  const API_URL = import.meta.env.VITE_BACKEND_URL;
-
   const handleKickOut = async (name: string) => {
     try {
-      const res = await fetch(`${API_URL}/teacher/remove`, {
+      const res = await fetch("http://localhost:5001/teacher/remove", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
