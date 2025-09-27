@@ -6,8 +6,13 @@ const { timeStamp } = require("console");
 const app = express();
 const server = http.createServer(app);
 
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "https://live-polling-system-black.vercel.app"
+];
+
 app.use(cors({
-  origin: ["https://live-polling-system-black.vercel.app"], 
+  origin: allowedOrigins, 
   methods: ["GET", "POST"],
   credentials: true
 }));
@@ -15,7 +20,7 @@ app.use(express.json());
 
 const io = new Server(server, {
     cors: {
-        origin: "*",
+        origin: allowedOrigins,
         methods: ["GET", "POST"],
     },
 });
