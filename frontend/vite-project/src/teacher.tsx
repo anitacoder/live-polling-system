@@ -4,7 +4,7 @@ import logo from "./assets/Vector.svg";
 import { useNavigate } from "react-router-dom";
 import "./teacher.css";
 
-const socket = io("http://localhost:5001");
+const socket = io(import.meta.env.VITE_API_URL || "https://live-polling-system-64hq.onrender.com");
 
 function TeacherPage() {
   const [question, setQuestion] = useState("");
