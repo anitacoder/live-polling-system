@@ -4,7 +4,7 @@ import logo from "./assets/Vector.svg";
 import { useNavigate } from "react-router-dom";
 import "./teacher.css";
 
-const socket = io("https://live-polling-system-89wk.onrender.com");
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 function TeacherPage() {
   const [question, setQuestion] = useState("");
@@ -14,7 +14,7 @@ function TeacherPage() {
   const [students, setStudents] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:5001/teacher/students")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/teacher/students`)
     .then((res) => res.json())
     .then((data) => setStudents(data))
     .catch((err) => console.error("Failed to load students:", err));

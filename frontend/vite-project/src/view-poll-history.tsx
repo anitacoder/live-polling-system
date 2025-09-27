@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 type Option = "Mars" | "Venus" | "Jupiter" | "Saturn";
 
-const socket = io("https://live-polling-system-89wk.onrender.com");
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 function ViewHistoryPollPage() {
   const [popupOpen, setPopupOpen] = useState(false);
@@ -61,7 +61,8 @@ function ViewHistoryPollPage() {
       setMessages((prev) => [...prev, msg]);
     });
 
-    fetch("http://localhost:5001/teacher/students")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/teacher/students`)
+
       .then((res) => res.json())
       .then((data) => setStudents(data));
 
@@ -75,7 +76,7 @@ function ViewHistoryPollPage() {
 
   const handleKickOut = async (name: string) => {
     try {
-      const res = await fetch("http://localhost:5001/teacher/remove", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/teacher/remove`,      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

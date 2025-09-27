@@ -6,7 +6,11 @@ const { timeStamp } = require("console");
 const app = express();
 const server = http.createServer(app);
 
-app.use(cors());
+app.use(cors({
+  origin: ["https://live-polling-system-black.vercel.app"], 
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use(express.json());
 
 const io = new Server(server, {

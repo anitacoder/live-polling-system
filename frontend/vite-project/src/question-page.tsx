@@ -6,7 +6,7 @@ import { io } from "socket.io-client";
 import { useNavigate } from "react-router-dom";
 
 
-const socket = io("https://live-polling-system-89wk.onrender.com");
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 function QuestionPage() {
   const [questionData, setQuestionData] = useState<any>(null);
@@ -24,7 +24,7 @@ function QuestionPage() {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await fetch("http://localhost:5001/teacher/history");
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/teacher/history`)
         const history = await res.json();
 
         if (history.length > 0) {
@@ -62,7 +62,7 @@ function QuestionPage() {
       setMessages((prev) => [...prev, msg]);
     });
 
-    fetch("http://localhost:5001/teacher/students")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/teacher/students`)
       .then((res) => res.json())
       .then((data) => setStudents(data));
 
@@ -118,7 +118,7 @@ function QuestionPage() {
 
   const handleKickOut = async (name: string) => {
     try {
-      const res = await fetch("http://localhost:5001/teacher/remove", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/teacher/remove`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json",

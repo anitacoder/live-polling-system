@@ -6,7 +6,7 @@ import reload from "./assets/Ellipse 1022.svg";
 import "./waiting.css";
 import message from "./assets/Vector-message.svg";
 
-const socket = io("https://live-polling-system-89wk.onrender.com");
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 function WaitingPage() {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ function WaitingPage() {
       setMessages((prev) => [...prev, msg]);
     });
 
-    fetch("http://localhost:5001/teacher/students")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/teacher/students`)
       .then((res) => res.json())
       .then((data) => setStudents(data));
 
@@ -73,7 +73,7 @@ function WaitingPage() {
 
   const handleKickOut = async (name: string) => {
     try {
-      const res = await fetch("http://localhost:5001/teacher/remove", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/teacher/remove`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
