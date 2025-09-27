@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import logo from "./assets/Vector.svg";
 import "./student.css"
 
-const socket = io(import.meta.env.VITE_BACKEND_URL);
+const socket = io("https://live-polling-system-89wk.onrender.com");
 
 function StudentPage() {
   const [name, setName] = useState("");

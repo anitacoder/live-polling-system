@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 type Option = "Mars" | "Venus" | "Jupiter" | "Saturn";
 
-const socket = io(import.meta.env.VITE_BACKEND_URL);
+const socket = io("https://live-polling-system-89wk.onrender.com");
 
 function ViewHistoryPollPage() {
   const [popupOpen, setPopupOpen] = useState(false);
@@ -76,7 +76,7 @@ function ViewHistoryPollPage() {
 
   const handleKickOut = async (name: string) => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/teacher/remove`,      {
+      const res = await fetch("http://localhost:5001/teacher/remove", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
