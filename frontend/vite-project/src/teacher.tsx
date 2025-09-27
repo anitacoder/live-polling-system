@@ -13,8 +13,10 @@ function TeacherPage() {
   const [timeLimit, setTimeLimit] = useState(60);
   const [students, setStudents] = useState<string[]>([]);
 
+  const API_URL = import.meta.env.VITE_BACKEND_URL;
+
   useEffect(() => {
-    fetch("http://localhost:5001/teacher/students")
+    fetch(`${API_URL}/teacher/students`)
     .then((res) => res.json())
     .then((data) => setStudents(data))
     .catch((err) => console.error("Failed to load students:", err));

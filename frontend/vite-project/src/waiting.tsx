@@ -35,8 +35,8 @@ function WaitingPage() {
       setMessages((prev) => [...prev, msg]);
     });
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/teacher/students`)
-      .then((res) => res.json())
+    fetch(`${API_URL}/teacher/students`)
+    .then((res) => res.json())
       .then((data) => setStudents(data));
 
     return () => {
@@ -71,9 +71,11 @@ function WaitingPage() {
     };
   }, [popupOpen]);
 
+  const API_URL = import.meta.env.VITE_BACKEND_URL;
+
   const handleKickOut = async (name: string) => {
     try {
-      const res = await fetch("http://localhost:5001/teacher/remove", {
+      const res = await fetch(`${API_URL}/teacher/remove`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
