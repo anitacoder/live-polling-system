@@ -4,7 +4,7 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "build": "cd frontend/vite-project && npm install && npm run build",
+    "build": "cd ../frontend/vite-project && npm install && npm run build",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },

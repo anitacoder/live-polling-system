@@ -266,7 +266,7 @@ function resetPoll() {
       answers = {};
 }
 
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.use(express.static(path.join(__dirname, "../frontend/vite-project/dist")));
 
 
 app.get("*", (req, res) => {
