@@ -2,28 +2,22 @@ const express = require("express");
 const http = require("http");
 const {Server} = require("socket.io")
 const cors = require("cors");
-const { timeStamp } = require("console");
+const fs = require("fs");
+const path = require("path");
+
 const app = express();
+
 const server = http.createServer(app);
 
-
-app.use(cors({
-  origin: "https://live-polling-system-1-r5zm.onrender.com",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
-
+app.use(cors());
 app.use(express.json());
 
 const io = new Server(server, {
-    cors: {
-        origin: "*",
-        methods: ["GET", "POST"],
-    },
+  cors: {
+      origin: "*",
+      methods: ["GET", "POST"],
+  },
 });
-
-const fs = require("fs");
-const path = require("path");
 
 const studentsFile = path.join(__dirname, "students.json");
 const pollsFile = path.join(__dirname, "polls.json");
@@ -271,6 +265,13 @@ function resetPoll() {
       CurrentQuestion = null;
       answers = {};
 }
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/vite-project/dist/index.html"));
+});
 const PORT = process.env.PORT || 5001;
 server.listen(PORT, () => {
   console.log(`Backend running at http://localhost:${PORT}`);
